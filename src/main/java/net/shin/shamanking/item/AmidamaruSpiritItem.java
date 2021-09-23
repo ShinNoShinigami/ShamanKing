@@ -1,5 +1,7 @@
 
-package net.mcreator.shamanking.item;
+package net.shin.shamanking.item;
+
+import net.shin.shamanking.ShamankingModElements;
 
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -8,8 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.block.BlockState;
-
-import net.mcreator.shamanking.ShamankingModElements;
 
 @ShamankingModElements.ModElement.Tag
 public class AmidamaruSpiritItem extends ShamankingModElements.ModElement {

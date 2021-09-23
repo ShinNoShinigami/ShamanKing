@@ -5,10 +5,13 @@ license="Academic Free License v3.0"
 [[mods]]
 modId="shamanking"
 version="1.0.0"
-displayName="ShamanKing"
-credits="Created using mod maker MCreator - https://mcreator.net/about"
+displayName="Shaman King"
+credits="Made by Shin"
 displayURL="https://mcreator.net"
-authors="Acer, MCreator"
+authors="Shin"
+description='''
+Based on the anime and manga 'Shaman King'
+'''
 
 [[dependencies.shamanking]]
     modId="minecraft"

@@ -1,12 +1,12 @@
-package net.mcreator.shamanking.procedures;
+package net.shin.shamanking.procedures;
+
+import net.shin.shamanking.item.HarusaneOverSoulItem;
+import net.shin.shamanking.ShamankingModVariables;
+import net.shin.shamanking.ShamankingMod;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
-
-import net.mcreator.shamanking.item.HarusaneOverSoulItem;
-import net.mcreator.shamanking.ShamankingModVariables;
-import net.mcreator.shamanking.ShamankingMod;
 
 import java.util.Map;
 

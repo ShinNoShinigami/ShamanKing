@@ -1,5 +1,8 @@
 
-package net.mcreator.shamanking.item;
+package net.shin.shamanking.item;
+
+import net.shin.shamanking.procedures.HarusameRightClickedInAirProcedure;
+import net.shin.shamanking.ShamankingModElements;
 
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -18,9 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.IItemTier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.block.BlockState;
-
-import net.mcreator.shamanking.procedures.HarusameRightClickedInAirProcedure;
-import net.mcreator.shamanking.ShamankingModElements;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -70,6 +70,7 @@ public class HarusameItem extends ShamankingModElements.ModElement {
 				{
 					Map<String, Object> $_dependencies = new HashMap<>();
 					$_dependencies.put("entity", entity);
+					$_dependencies.put("sourceentity", sourceentity);
 					HarusameRightClickedInAirProcedure.executeProcedure($_dependencies);
 				}
 				return retval;
@@ -90,6 +91,7 @@ public class HarusameItem extends ShamankingModElements.ModElement {
 				{
 					Map<String, Object> $_dependencies = new HashMap<>();
 					$_dependencies.put("entity", entity);
+					$_dependencies.put("sourceentity", sourceentity);
 					HarusameRightClickedInAirProcedure.executeProcedure($_dependencies);
 				}
 				return retval;

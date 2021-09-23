@@ -1,5 +1,8 @@
 
-package net.mcreator.shamanking.item;
+package net.shin.shamanking.item;
+
+import net.shin.shamanking.procedures.HarusaneOverSoulToolInInventoryTickProcedure;
+import net.shin.shamanking.ShamankingModElements;
 
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -11,9 +14,6 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.IItemTier;
 import net.minecraft.entity.Entity;
-
-import net.mcreator.shamanking.procedures.HarusaneOverSoulToolInInventoryTickProcedure;
-import net.mcreator.shamanking.ShamankingModElements;
 
 import java.util.Map;
 import java.util.HashMap;

@@ -1,10 +1,10 @@
-package net.mcreator.shamanking.procedures;
+package net.shin.shamanking.procedures;
+
+import net.shin.shamanking.ShamankingMod;
 
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.Entity;
-
-import net.mcreator.shamanking.ShamankingMod;
 
 import java.util.Map;
 import java.util.Collections;

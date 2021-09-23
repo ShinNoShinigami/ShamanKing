@@ -1,4 +1,4 @@
-package net.mcreator.shamanking;
+package net.shin.shamanking;
 
 import net.minecraftforge.fml.network.PacketDistributor;
 import net.minecraftforge.fml.network.NetworkEvent;

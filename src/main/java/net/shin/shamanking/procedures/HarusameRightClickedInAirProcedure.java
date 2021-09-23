@@ -1,4 +1,9 @@
-package net.mcreator.shamanking.procedures;
+package net.shin.shamanking.procedures;
+
+import net.shin.shamanking.item.HarusaneOverSoulItem;
+import net.shin.shamanking.item.HarusameItem;
+import net.shin.shamanking.item.AmidamaruSpiritItem;
+import net.shin.shamanking.ShamankingMod;
 
 import net.minecraft.util.Hand;
 import net.minecraft.item.ItemStack;
@@ -7,11 +12,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
-
-import net.mcreator.shamanking.item.HarusaneOverSoulItem;
-import net.mcreator.shamanking.item.HarusameItem;
-import net.mcreator.shamanking.item.AmidamaruSpiritItem;
-import net.mcreator.shamanking.ShamankingMod;
 
 import java.util.Map;
 

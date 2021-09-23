@@ -165,10 +165,10 @@
   },
   "workspaceSettings": {
     "modid": "shamanking",
-    "modName": "ShamanKing",
+    "modName": "Shaman King",
     "version": "1.0.0",
-    "author": "Acer, MCreator",
-    "websiteURL": "https://mcreator.net",
+    "description": "Based on the anime and manga \u0027Shaman King\u0027",
+    "author": "Shin",
     "license": "Academic Free License v3.0",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
@@ -177,7 +177,8 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.16.5",
-    "modElementsPackage": "net.mcreator.shamanking",
+    "credits": "Made by Shin",
+    "modElementsPackage": "net.shin.shamanking",
     "lockBaseModFiles": false
   },
   "mcreatorVersion": 202100236710

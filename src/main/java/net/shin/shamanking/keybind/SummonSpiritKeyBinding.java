@@ -1,7 +1,9 @@
 
-package net.mcreator.shamanking.keybind;
+package net.shin.shamanking.keybind;
 
 import org.lwjgl.glfw.GLFW;
+
+import net.shin.shamanking.ShamankingModElements;
 
 import net.minecraftforge.fml.network.NetworkEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -13,8 +15,6 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.client.settings.KeyBinding;
-
-import net.mcreator.shamanking.ShamankingModElements;
 
 import java.util.function.Supplier;
 
