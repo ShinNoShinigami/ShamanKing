@@ -20,22 +20,40 @@
       "registry_name": "amidamaru_spirit"
     },
     {
-      "name": "HarusaneOverSoul",
-      "type": "tool",
-      "sortid": 3,
+      "name": "Test",
+      "type": "livingentity",
+      "sortid": 7,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "harusane_over_soul"
+      "registry_name": "test"
     },
     {
-      "name": "HarusaneOverSoulToolInInventoryTick",
+      "name": "Spirit1Follow",
       "type": "procedure",
-      "sortid": 4,
+      "sortid": 9,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "harusane_over_soul_tool_in_inventory_tick",
+      "registry_name": "spirit_1_follow",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RecallSpirit1OnKeyPressed",
+      "type": "procedure",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "recall_spirit_1_on_key_pressed",
       "metadata": {
         "dependencies": [
           {
@@ -46,19 +64,24 @@
       }
     },
     {
-      "name": "HarusameRightClickedInAir",
-      "type": "procedure",
-      "sortid": 3,
+      "name": "RecallSpirit1",
+      "type": "keybind",
+      "sortid": 10,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "harusame_right_clicked_in_air",
+      "registry_name": "recall_spirit_1"
+    },
+    {
+      "name": "TestRightClickedOnEntity",
+      "type": "procedure",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "test_right_clicked_on_entity",
       "metadata": {
         "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
           {
             "name": "sourceentity",
             "type": "entity"
@@ -67,38 +90,17 @@
       }
     },
     {
-      "name": "SpiritMove",
+      "name": "AmidamaruSpiritRightClickedInAir",
       "type": "procedure",
-      "sortid": 5,
+      "sortid": 12,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "spirit_move",
+      "registry_name": "amidamaru_spirit_right_clicked_in_air",
       "metadata": {
         "dependencies": [
           {
             "name": "entity",
-            "type": "entity"
-          }
-        ]
-      }
-    },
-    {
-      "name": "SummonSpiritOnKeyPressed",
-      "type": "procedure",
-      "sortid": 6,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "summon_spirit_on_key_pressed",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
             "type": "entity"
           },
           {
@@ -107,15 +109,6 @@
           }
         ]
       }
-    },
-    {
-      "name": "SummonSpirit",
-      "type": "keybind",
-      "sortid": 6,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "summon_spirit"
     }
   ],
   "variable_elements": [
@@ -126,37 +119,26 @@
       "value": "10.0"
     },
     {
-      "name": "minimum",
-      "type": "number",
-      "scope": "global",
-      "value": "0"
-    },
-    {
-      "name": "maximum",
-      "type": "number",
-      "scope": "global",
-      "value": "0"
-    },
-    {
-      "name": "distance",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
       "name": "Master",
       "type": "string",
       "scope": "player_persistent",
       "value": "\"\""
+    },
+    {
+      "name": "Spirit1Follow",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [],
   "language_map": {
     "en_us": {
       "item.shamanking.amidamaru_spirit": "Amidamaru Spirit",
-      "item.shamanking.harusame": "Harusame",
-      "item.shamanking.harusane_over_soul": "Harusane Over Soul",
-      "key.shamanking.summon_spirit": "Summon Spirit"
+      "key.shamanking.recall_spirit_1": "Recall Spirit 1",
+      "entity.shamanking.test": "Test",
+      "item.shamanking.test_spawn_egg": "Test Spawn Egg",
+      "item.shamanking.harusame": "Harusame"
     }
   },
   "foldersRoot": {

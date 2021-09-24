@@ -1,6 +1,7 @@
 {
   "item.shamanking.amidamaru_spirit": "Amidamaru Spirit",
-  "item.shamanking.harusame": "Harusame",
-  "item.shamanking.harusane_over_soul": "Harusane Over Soul",
-  "key.shamanking.summon_spirit": "Summon Spirit"
+  "key.shamanking.recall_spirit_1": "Recall Spirit 1",
+  "entity.shamanking.test": "Test",
+  "item.shamanking.test_spawn_egg": "Test Spawn Egg",
+  "item.shamanking.harusame": "Harusame"
 }

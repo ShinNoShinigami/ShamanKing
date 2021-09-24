@@ -1,0 +1,12 @@
+{
+  "_fv": 24,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "0",
+    "keyBindingName": "Recall Spirit 1",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "RecallSpirit1OnKeyPressed"
+    }
+  }
+}

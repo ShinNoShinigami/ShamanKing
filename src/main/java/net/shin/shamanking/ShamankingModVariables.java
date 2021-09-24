@@ -36,8 +36,6 @@ public class ShamankingModVariables {
 	private void init(FMLCommonSetupEvent event) {
 		CapabilityManager.INSTANCE.register(PlayerVariables.class, new PlayerVariablesStorage(), PlayerVariables::new);
 	}
-	public static double minimum = 0;
-	public static double maximum = 0;
 	@CapabilityInject(PlayerVariables.class)
 	public static Capability<PlayerVariables> PLAYER_VARIABLES_CAPABILITY = null;
 	@SubscribeEvent
@@ -70,8 +68,8 @@ public class ShamankingModVariables {
 		public INBT writeNBT(Capability<PlayerVariables> capability, PlayerVariables instance, Direction side) {
 			CompoundNBT nbt = new CompoundNBT();
 			nbt.putDouble("furyoku", instance.furyoku);
-			nbt.putDouble("distance", instance.distance);
 			nbt.putString("Master", instance.Master);
+			nbt.putBoolean("Spirit1Follow", instance.Spirit1Follow);
 			return nbt;
 		}
 
@@ -79,15 +77,15 @@ public class ShamankingModVariables {
 		public void readNBT(Capability<PlayerVariables> capability, PlayerVariables instance, Direction side, INBT inbt) {
 			CompoundNBT nbt = (CompoundNBT) inbt;
 			instance.furyoku = nbt.getDouble("furyoku");
-			instance.distance = nbt.getDouble("distance");
 			instance.Master = nbt.getString("Master");
+			instance.Spirit1Follow = nbt.getBoolean("Spirit1Follow");
 		}
 	}
 
 	public static class PlayerVariables {
 		public double furyoku = 10.0;
-		public double distance = 0;
 		public String Master = "\"\"";
+		public boolean Spirit1Follow = false;
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
 				ShamankingMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) entity),
@@ -121,8 +119,8 @@ public class ShamankingModVariables {
 				.orElse(new PlayerVariables()));
 		PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 		clone.furyoku = original.furyoku;
-		clone.distance = original.distance;
 		clone.Master = original.Master;
+		clone.Spirit1Follow = original.Spirit1Follow;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -148,8 +146,8 @@ public class ShamankingModVariables {
 					PlayerVariables variables = ((PlayerVariables) Minecraft.getInstance().player.getCapability(PLAYER_VARIABLES_CAPABILITY, null)
 							.orElse(new PlayerVariables()));
 					variables.furyoku = message.data.furyoku;
-					variables.distance = message.data.distance;
 					variables.Master = message.data.Master;
+					variables.Spirit1Follow = message.data.Spirit1Follow;
 				}
 			});
 			context.setPacketHandled(true);

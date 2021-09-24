@@ -22,12 +22,6 @@
     "repairItems": [],
     "immuneToFire": false,
     "stayInGridWhenCrafting": false,
-    "damageOnCrafting": false,
-    "onRightClickedInAir": {
-      "name": "HarusameRightClickedInAir"
-    },
-    "onRightClickedOnBlock": {
-      "name": "HarusameRightClickedInAir"
-    }
+    "damageOnCrafting": false
   }
 }
