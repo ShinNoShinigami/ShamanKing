@@ -1,5 +1,6 @@
 package net.shin.shamanking.procedures;
 
+import net.shin.shamanking.item.AmidamaruSpiritItem;
 import net.shin.shamanking.entity.TestEntity;
 import net.shin.shamanking.ShamankingMod;
 
@@ -8,6 +9,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.SpawnReason;
@@ -73,6 +75,11 @@ public class AmidamaruSpiritRightClickedInAirProcedure {
 						}
 					}.compareDistOf((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()))).findFirst().orElse(null)))
 							.setTamedBy((PlayerEntity) entity);
+		}
+		if (entity instanceof PlayerEntity) {
+			ItemStack _stktoremove = new ItemStack(AmidamaruSpiritItem.block);
+			((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
+					((PlayerEntity) entity).container.func_234641_j_());
 		}
 	}
 }

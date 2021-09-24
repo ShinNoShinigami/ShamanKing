@@ -13,12 +13,20 @@ import java.util.Map;
 
 public class TestRightClickedOnEntityProcedure {
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				ShamankingMod.LOGGER.warn("Failed to load dependency entity for procedure TestRightClickedOnEntity!");
+			return;
+		}
 		if (dependencies.get("sourceentity") == null) {
 			if (!dependencies.containsKey("sourceentity"))
 				ShamankingMod.LOGGER.warn("Failed to load dependency sourceentity for procedure TestRightClickedOnEntity!");
 			return;
 		}
+		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
+		if (!entity.world.isRemote())
+			entity.remove();
 		if (sourceentity instanceof PlayerEntity) {
 			ItemStack _setstack = new ItemStack(AmidamaruSpiritItem.block);
 			_setstack.setCount((int) 1);
