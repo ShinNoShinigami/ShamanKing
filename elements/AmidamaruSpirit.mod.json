@@ -2,9 +2,9 @@
   "_fv": 24,
   "_type": "item",
   "definition": {
-    "renderType": 2,
+    "renderType": 1,
     "texture": "amidamaruspirit",
-    "customModelName": "amidamaruspirit:default",
+    "customModelName": "amidamaruitem:default",
     "name": "Amidamaru Spirit",
     "rarity": "COMMON",
     "creativeTab": {
