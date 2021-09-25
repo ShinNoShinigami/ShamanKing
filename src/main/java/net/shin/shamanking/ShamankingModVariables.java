@@ -70,8 +70,8 @@ public class ShamankingModVariables {
 			nbt.putDouble("furyoku", instance.furyoku);
 			nbt.putString("Master", instance.Master);
 			nbt.putBoolean("Spirit1Follow", instance.Spirit1Follow);
-			nbt.putString("SpiritInfused", instance.SpiritInfused);
 			nbt.putBoolean("AmidamaruInUse", instance.AmidamaruInUse);
+			nbt.putString("SpiritInfused", instance.SpiritInfused);
 			return nbt;
 		}
 
@@ -81,8 +81,8 @@ public class ShamankingModVariables {
 			instance.furyoku = nbt.getDouble("furyoku");
 			instance.Master = nbt.getString("Master");
 			instance.Spirit1Follow = nbt.getBoolean("Spirit1Follow");
-			instance.SpiritInfused = nbt.getString("SpiritInfused");
 			instance.AmidamaruInUse = nbt.getBoolean("AmidamaruInUse");
+			instance.SpiritInfused = nbt.getString("SpiritInfused");
 		}
 	}
 
@@ -90,8 +90,8 @@ public class ShamankingModVariables {
 		public double furyoku = 10.0;
 		public String Master = "\"\"";
 		public boolean Spirit1Follow = false;
-		public String SpiritInfused = "None";
 		public boolean AmidamaruInUse = false;
+		public String SpiritInfused = "\"\"";
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
 				ShamankingMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) entity),
@@ -127,8 +127,8 @@ public class ShamankingModVariables {
 		clone.furyoku = original.furyoku;
 		clone.Master = original.Master;
 		clone.Spirit1Follow = original.Spirit1Follow;
-		clone.SpiritInfused = original.SpiritInfused;
 		clone.AmidamaruInUse = original.AmidamaruInUse;
+		clone.SpiritInfused = original.SpiritInfused;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -156,8 +156,8 @@ public class ShamankingModVariables {
 					variables.furyoku = message.data.furyoku;
 					variables.Master = message.data.Master;
 					variables.Spirit1Follow = message.data.Spirit1Follow;
-					variables.SpiritInfused = message.data.SpiritInfused;
 					variables.AmidamaruInUse = message.data.AmidamaruInUse;
+					variables.SpiritInfused = message.data.SpiritInfused;
 				}
 			});
 			context.setPacketHandled(true);

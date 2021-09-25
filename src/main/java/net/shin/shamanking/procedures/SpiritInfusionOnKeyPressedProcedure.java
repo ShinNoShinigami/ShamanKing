@@ -22,8 +22,8 @@ public class SpiritInfusionOnKeyPressedProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		if (((((entity.getCapability(ShamankingModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new ShamankingModVariables.PlayerVariables())).SpiritInfused)).equals("None"))) {
-			if ((((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
-					.getString("Spirit"))).equals("Amidamaru"))) {
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+					.getItem() == AmidamaruSpiritItem.block)) {
 				if (entity instanceof LivingEntity) {
 					ItemStack _setstack = (ItemStack.EMPTY);
 					_setstack.setCount((int) 1);
@@ -38,9 +38,15 @@ public class SpiritInfusionOnKeyPressedProcedure {
 						capability.syncPlayerVariables(entity);
 					});
 				}
+				{
+					String _setval = (String) "Amidamaru";
+					entity.getCapability(ShamankingModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.SpiritInfused = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
 			}
-		}
-		if (((((entity.getCapability(ShamankingModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+		} else if (((((entity.getCapability(ShamankingModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new ShamankingModVariables.PlayerVariables())).SpiritInfused)).equals("Amidamaru"))) {
 			if (entity instanceof LivingEntity) {
 				ItemStack _setstack = new ItemStack(AmidamaruSpiritItem.block);
@@ -49,12 +55,25 @@ public class SpiritInfusionOnKeyPressedProcedure {
 				if (entity instanceof ServerPlayerEntity)
 					((ServerPlayerEntity) entity).inventory.markDirty();
 			}
-			((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag().putString("Spirit",
-					"Amidamaru");
 			{
 				boolean _setval = (boolean) (false);
 				entity.getCapability(ShamankingModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.AmidamaruInUse = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+			{
+				String _setval = (String) "None";
+				entity.getCapability(ShamankingModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.SpiritInfused = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+		} else {
+			{
+				String _setval = (String) "None";
+				entity.getCapability(ShamankingModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.SpiritInfused = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}

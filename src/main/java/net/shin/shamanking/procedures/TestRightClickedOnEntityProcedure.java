@@ -38,8 +38,6 @@ public class TestRightClickedOnEntityProcedure {
 					if (sourceentity instanceof ServerPlayerEntity)
 						((ServerPlayerEntity) sourceentity).inventory.markDirty();
 				}
-				((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
-						.putString("Spirit", "Amidamaru");
 			}
 		}
 	}

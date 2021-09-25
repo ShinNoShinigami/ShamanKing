@@ -178,16 +178,16 @@
       "value": "false"
     },
     {
-      "name": "SpiritInfused",
-      "type": "string",
-      "scope": "player_persistent",
-      "value": "None"
-    },
-    {
       "name": "AmidamaruInUse",
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
+    },
+    {
+      "name": "SpiritInfused",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
     }
   ],
   "sound_elements": [],
