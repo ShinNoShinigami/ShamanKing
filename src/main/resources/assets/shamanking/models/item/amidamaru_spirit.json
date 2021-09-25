@@ -1,6 +1,10 @@
 {
-  "parent": "item/generated",
+  "forge_marker": 1,
+  "parent": "forge:item/default",
+  "loader": "forge:obj",
+  "model": "shamanking:models/item/amidamaruspirit.obj",
   "textures": {
-    "layer0": "shamanking:items/amidamaruspirit"
+    "m_0": "shamanking:blocks/texture",
+    "particle": "shamanking:items/amidamaruspirit"
   }
 }

@@ -113,6 +113,49 @@
           }
         ]
       }
+    },
+    {
+      "name": "SpiritInfusionOnKeyPressed",
+      "type": "procedure",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "spirit_infusion_on_key_pressed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SpiritInfusion",
+      "type": "keybind",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "spirit_infusion"
+    },
+    {
+      "name": "OnWorldTickUpdate",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "on_world_tick_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -133,6 +176,18 @@
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
+    },
+    {
+      "name": "SpiritInfused",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "None"
+    },
+    {
+      "name": "AmidamaruInUse",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [],
@@ -140,6 +195,7 @@
     "en_us": {
       "item.shamanking.amidamaru_spirit": "Amidamaru Spirit",
       "key.shamanking.recall_spirit_1": "Recall Spirit 1",
+      "key.shamanking.spirit_infusion": "Spirit Infusion",
       "entity.shamanking.test": "Test",
       "item.shamanking.test_spawn_egg": "Test Spawn Egg",
       "item.shamanking.harusame": "Harusame"
