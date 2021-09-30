@@ -3,6 +3,7 @@ package net.shin.shamanking.entity;
 
 import net.shin.shamanking.procedures.TestRightClickedOnEntityProcedure;
 import net.shin.shamanking.procedures.Spirit1FollowProcedure;
+import net.shin.shamanking.itemgroup.ShamanKingItemGroup;
 import net.shin.shamanking.entity.renderer.TestRenderer;
 import net.shin.shamanking.ShamankingModElements;
 
@@ -25,7 +26,6 @@ import net.minecraft.network.IPacket;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.projectile.PotionEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
@@ -69,7 +69,8 @@ public class TestEntity extends ShamankingModElements.ModElement {
 	@Override
 	public void initElements() {
 		elements.entities.add(() -> entity);
-		elements.items.add(() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ItemGroup.MISC)).setRegistryName("test_spawn_egg"));
+		elements.items
+				.add(() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ShamanKingItemGroup.tab)).setRegistryName("test_spawn_egg"));
 	}
 
 	@Override
@@ -222,6 +223,7 @@ public class TestEntity extends ShamankingModElements.ModElement {
 						this.enablePersistence();
 				}
 			}
+			sourceentity.startRiding(this);
 			double x = this.getPosX();
 			double y = this.getPosY();
 			double z = this.getPosZ();

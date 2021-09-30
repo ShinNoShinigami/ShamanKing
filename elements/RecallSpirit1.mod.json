@@ -3,8 +3,8 @@
   "_type": "keybind",
   "definition": {
     "triggerKey": "0",
-    "keyBindingName": "Recall Spirit 1",
-    "keyBindingCategoryKey": "misc",
+    "keyBindingName": "Recall Spirit",
+    "keyBindingCategoryKey": "shamanking",
     "onKeyPressed": {
       "name": "RecallSpirit1OnKeyPressed"
     }

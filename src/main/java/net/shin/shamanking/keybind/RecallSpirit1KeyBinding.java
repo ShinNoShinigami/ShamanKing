@@ -39,7 +39,7 @@ public class RecallSpirit1KeyBinding extends ShamankingModElements.ModElement {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
-		keys = new KeyBinding("key.shamanking.recall_spirit_1", GLFW.GLFW_KEY_0, "key.categories.misc");
+		keys = new KeyBinding("key.shamanking.recall_spirit_1", GLFW.GLFW_KEY_0, "key.categories.shamanking");
 		ClientRegistry.registerKeyBinding(keys);
 		MinecraftForge.EVENT_BUS.register(this);
 	}

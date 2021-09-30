@@ -2,6 +2,7 @@
 package net.shin.shamanking.item;
 
 import net.shin.shamanking.procedures.AmidamaruSpiritRightClickedInAirProcedure;
+import net.shin.shamanking.itemgroup.ShamanKingItemGroup;
 import net.shin.shamanking.ShamankingModElements;
 
 import net.minecraftforge.registries.ObjectHolder;
@@ -13,7 +14,6 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.item.Rarity;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.block.BlockState;
@@ -35,7 +35,7 @@ public class AmidamaruSpiritItem extends ShamankingModElements.ModElement {
 	}
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
-			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));
+			super(new Item.Properties().group(ShamanKingItemGroup.tab).maxStackSize(1).rarity(Rarity.COMMON));
 			setRegistryName("amidamaru_spirit");
 		}
 

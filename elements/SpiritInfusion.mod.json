@@ -3,8 +3,8 @@
   "_type": "keybind",
   "definition": {
     "triggerKey": "V",
-    "keyBindingName": "Spirit Infusion",
-    "keyBindingCategoryKey": "misc",
+    "keyBindingName": "Hy?i-Gattai",
+    "keyBindingCategoryKey": "shamanking",
     "onKeyPressed": {
       "name": "SpiritInfusionOnKeyPressed"
     }

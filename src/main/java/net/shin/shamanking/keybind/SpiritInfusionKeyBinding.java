@@ -39,7 +39,7 @@ public class SpiritInfusionKeyBinding extends ShamankingModElements.ModElement {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
-		keys = new KeyBinding("key.shamanking.spirit_infusion", GLFW.GLFW_KEY_V, "key.categories.misc");
+		keys = new KeyBinding("key.shamanking.spirit_infusion", GLFW.GLFW_KEY_V, "key.categories.shamanking");
 		ClientRegistry.registerKeyBinding(keys);
 		MinecraftForge.EVENT_BUS.register(this);
 	}

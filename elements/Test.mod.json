@@ -2,10 +2,10 @@
   "_fv": 24,
   "_type": "livingentity",
   "definition": {
-    "mobName": "Test",
+    "mobName": "Amidamaru",
     "mobLabel": "",
-    "mobModelName": "Biped",
-    "mobModelTexture": "armour.png",
+    "mobModelName": "Modelcustom_model",
+    "mobModelTexture": "amidamaruhuman.png",
     "mobModelGlowTexture": "",
     "modelWidth": 0.6,
     "modelHeight": 1.8,
@@ -21,7 +21,7 @@
       "falpha": 0.0
     },
     "creativeTab": {
-      "value": "MISC"
+      "value": "CUSTOM:ShamanKing"
     },
     "isBoss": false,
     "bossBarColor": "PINK",
@@ -60,7 +60,7 @@
     "inventorySize": 9,
     "inventoryStackSize": 64,
     "disableCollisions": false,
-    "ridable": false,
+    "ridable": true,
     "canControlForward": false,
     "canControlStrafe": false,
     "immuneToFire": true,

@@ -72,6 +72,7 @@ public class ShamankingModVariables {
 			nbt.putBoolean("Spirit1Follow", instance.Spirit1Follow);
 			nbt.putBoolean("AmidamaruInUse", instance.AmidamaruInUse);
 			nbt.putString("SpiritInfused", instance.SpiritInfused);
+			nbt.putDouble("furyokumax", instance.furyokumax);
 			return nbt;
 		}
 
@@ -83,15 +84,17 @@ public class ShamankingModVariables {
 			instance.Spirit1Follow = nbt.getBoolean("Spirit1Follow");
 			instance.AmidamaruInUse = nbt.getBoolean("AmidamaruInUse");
 			instance.SpiritInfused = nbt.getString("SpiritInfused");
+			instance.furyokumax = nbt.getDouble("furyokumax");
 		}
 	}
 
 	public static class PlayerVariables {
-		public double furyoku = 10.0;
+		public double furyoku = 50.0;
 		public String Master = "\"\"";
 		public boolean Spirit1Follow = false;
 		public boolean AmidamaruInUse = false;
 		public String SpiritInfused = "\"\"";
+		public double furyokumax = 500.0;
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
 				ShamankingMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) entity),
@@ -129,6 +132,7 @@ public class ShamankingModVariables {
 		clone.Spirit1Follow = original.Spirit1Follow;
 		clone.AmidamaruInUse = original.AmidamaruInUse;
 		clone.SpiritInfused = original.SpiritInfused;
+		clone.furyokumax = original.furyokumax;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -158,6 +162,7 @@ public class ShamankingModVariables {
 					variables.Spirit1Follow = message.data.Spirit1Follow;
 					variables.AmidamaruInUse = message.data.AmidamaruInUse;
 					variables.SpiritInfused = message.data.SpiritInfused;
+					variables.furyokumax = message.data.furyokumax;
 				}
 			});
 			context.setPacketHandled(true);

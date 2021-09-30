@@ -2,15 +2,6 @@
   "id_map": {},
   "mod_elements": [
     {
-      "name": "Harusame",
-      "type": "tool",
-      "sortid": 1,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "harusame"
-    },
-    {
       "name": "AmidamaruSpirit",
       "type": "item",
       "sortid": 2,
@@ -156,6 +147,41 @@
           }
         ]
       }
+    },
+    {
+      "name": "ShamanKing",
+      "type": "tab",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "shaman_king"
+    },
+    {
+      "name": "FuryokuGain",
+      "type": "procedure",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "furyoku_gain",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FuryokuDisplay",
+      "type": "overlay",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "furyoku_display"
     }
   ],
   "variable_elements": [
@@ -163,7 +189,7 @@
       "name": "furyoku",
       "type": "number",
       "scope": "player_persistent",
-      "value": "10.0"
+      "value": "50.0"
     },
     {
       "name": "Master",
@@ -188,17 +214,23 @@
       "type": "string",
       "scope": "player_persistent",
       "value": "\"\""
+    },
+    {
+      "name": "furyokumax",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "500.0"
     }
   ],
   "sound_elements": [],
   "language_map": {
     "en_us": {
       "item.shamanking.amidamaru_spirit": "Amidamaru Spirit",
-      "key.shamanking.recall_spirit_1": "Recall Spirit 1",
-      "key.shamanking.spirit_infusion": "Spirit Infusion",
-      "entity.shamanking.test": "Test",
-      "item.shamanking.test_spawn_egg": "Test Spawn Egg",
-      "item.shamanking.harusame": "Harusame"
+      "key.shamanking.recall_spirit_1": "Recall Spirit",
+      "key.shamanking.spirit_infusion": "Hy?i-Gattai",
+      "entity.shamanking.test": "Amidamaru",
+      "item.shamanking.test_spawn_egg": "Amidamaru Spawn Egg",
+      "itemGroup.tabshaman_king": "Shaman King"
     }
   },
   "foldersRoot": {
