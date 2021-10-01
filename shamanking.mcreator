@@ -182,6 +182,15 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "furyoku_display"
+    },
+    {
+      "name": "StatGUI",
+      "type": "gui",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "stat_gui"
     }
   ],
   "variable_elements": [
