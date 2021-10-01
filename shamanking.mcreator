@@ -182,15 +182,6 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "furyoku_display"
-    },
-    {
-      "name": "LayerLoading",
-      "type": "code",
-      "sortid": 18,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "layer_loading"
     }
   ],
   "variable_elements": [
