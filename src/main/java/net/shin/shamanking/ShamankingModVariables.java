@@ -73,6 +73,7 @@ public class ShamankingModVariables {
 			nbt.putBoolean("AmidamaruInUse", instance.AmidamaruInUse);
 			nbt.putString("SpiritInfused", instance.SpiritInfused);
 			nbt.putDouble("furyokumax", instance.furyokumax);
+			nbt.putBoolean("OracleBellEquipped", instance.OracleBellEquipped);
 			return nbt;
 		}
 
@@ -85,6 +86,7 @@ public class ShamankingModVariables {
 			instance.AmidamaruInUse = nbt.getBoolean("AmidamaruInUse");
 			instance.SpiritInfused = nbt.getString("SpiritInfused");
 			instance.furyokumax = nbt.getDouble("furyokumax");
+			instance.OracleBellEquipped = nbt.getBoolean("OracleBellEquipped");
 		}
 	}
 
@@ -95,6 +97,7 @@ public class ShamankingModVariables {
 		public boolean AmidamaruInUse = false;
 		public String SpiritInfused = "\"\"";
 		public double furyokumax = 500.0;
+		public boolean OracleBellEquipped = false;
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
 				ShamankingMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) entity),
@@ -133,6 +136,7 @@ public class ShamankingModVariables {
 		clone.AmidamaruInUse = original.AmidamaruInUse;
 		clone.SpiritInfused = original.SpiritInfused;
 		clone.furyokumax = original.furyokumax;
+		clone.OracleBellEquipped = original.OracleBellEquipped;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -163,6 +167,7 @@ public class ShamankingModVariables {
 					variables.AmidamaruInUse = message.data.AmidamaruInUse;
 					variables.SpiritInfused = message.data.SpiritInfused;
 					variables.furyokumax = message.data.furyokumax;
+					variables.OracleBellEquipped = message.data.OracleBellEquipped;
 				}
 			});
 			context.setPacketHandled(true);

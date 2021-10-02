@@ -229,6 +229,12 @@
       "type": "number",
       "scope": "player_persistent",
       "value": "500.0"
+    },
+    {
+      "name": "OracleBellEquipped",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [],

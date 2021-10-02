@@ -30,8 +30,8 @@ public class StatGUIGuiWindow extends ContainerScreen<StatGUIGui.GuiContainerMod
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.xSize = 176;
-		this.ySize = 166;
+		this.xSize = 225;
+		this.ySize = 200;
 	}
 	private static final ResourceLocation texture = new ResourceLocation("shamanking:textures/stat_gui.png");
 	@Override
@@ -51,7 +51,7 @@ public class StatGUIGuiWindow extends ContainerScreen<StatGUIGui.GuiContainerMod
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
 		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("shamanking:textures/playeroutline.png"));
-		this.blit(ms, this.guiLeft + 33, this.guiTop + 35, 0, 0, 100, 100, 100, 100);
+		this.blit(ms, this.guiLeft + 67, this.guiTop + 49, 0, 0, 100, 100, 100, 100);
 		RenderSystem.disableBlend();
 	}
 
