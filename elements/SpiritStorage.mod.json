@@ -1,0 +1,78 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 225,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "text": "Stats",
+          "onClick": {
+            "name": "OracleBellOnKeyPressed"
+          },
+          "width": 50,
+          "height": 20,
+          "name": "Stats",
+          "x": 323,
+          "y": 20
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Spirits",
+          "onClick": {
+            "name": "OpenSpiritStorage"
+          },
+          "width": 60,
+          "height": 20,
+          "name": "Spirits",
+          "x": 323,
+          "y": 39
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": "CUSTOM:AmidamaruSpirit"
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 105,
+          "y": 26
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Appraisal",
+          "onClick": {
+            "name": "OpenAppraisal"
+          },
+          "width": 70,
+          "height": 20,
+          "name": "Appraisal",
+          "x": 323,
+          "y": 58
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

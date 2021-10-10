@@ -1,0 +1,7 @@
+{
+  "parent": "shamanking:custom/oraclebe",
+  "textures": {
+    "0": "shamanking:blocks/oracle",
+    "particle": "shamanking:items/amidamaruspirit"
+  }
+}

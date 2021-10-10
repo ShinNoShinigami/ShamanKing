@@ -3,7 +3,7 @@
   "_type": "gui",
   "definition": {
     "type": 0,
-    "width": 225,
+    "width": 250,
     "height": 200,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
@@ -11,13 +11,145 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "image",
+        "type": "label",
         "data": {
-          "image": "playeroutline.png",
-          "use1Xscale": false,
-          "name": "playeroutline.png",
-          "x": 168,
-          "y": 69
+          "text": "<VAR:integer:furyokumax>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<VAR:integer:furyokumax>",
+          "x": 221,
+          "y": 160
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<VAR:integer:furyoku>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<VAR:integer:furyoku>",
+          "x": 221,
+          "y": 145
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Stats",
+          "onClick": {
+            "name": "OracleBellOnKeyPressed"
+          },
+          "displayCondition": {
+            "name": "GUIButtonDisplay"
+          },
+          "width": 50,
+          "height": 20,
+          "name": "Stats",
+          "x": 335,
+          "y": 20
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Spirits",
+          "onClick": {
+            "name": "OpenSpiritStorage"
+          },
+          "displayCondition": {
+            "name": "GUIButtonDisplay"
+          },
+          "width": 60,
+          "height": 20,
+          "name": "Spirits",
+          "x": 335,
+          "y": 39
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Furyoku:",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Furyoku:",
+          "x": 96,
+          "y": 145
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Appraisal",
+          "onClick": {
+            "name": "OpenAppraisal"
+          },
+          "displayCondition": {
+            "name": "GUIButtonDisplay"
+          },
+          "width": 70,
+          "height": 20,
+          "name": "Appraisal",
+          "x": 335,
+          "y": 58
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Max Furyoku",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Max Furyoku",
+          "x": 96,
+          "y": 160
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Strength",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Strength",
+          "x": 96,
+          "y": 175
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Agility",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Agility",
+          "x": 96,
+          "y": 190
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Durability",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Durability",
+          "x": 96,
+          "y": 205
         }
       }
     ],

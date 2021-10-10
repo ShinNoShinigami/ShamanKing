@@ -1,9 +1,7 @@
 
 package net.shin.shamanking.gui;
 
-import net.shin.shamanking.procedures.OracleBellOnKeyPressedProcedure;
-import net.shin.shamanking.procedures.OpenSpiritStorageProcedure;
-import net.shin.shamanking.procedures.OpenAppraisalProcedure;
+import net.shin.shamanking.procedures.AmidamaruUnlockProcedure;
 import net.shin.shamanking.ShamankingModElements;
 
 import net.minecraftforge.items.ItemStackHandler;
@@ -32,11 +30,11 @@ import java.util.Map;
 import java.util.HashMap;
 
 @ShamankingModElements.ModElement.Tag
-public class StatGUIGui extends ShamankingModElements.ModElement {
+public class AmidamaruObtainGUIGui extends ShamankingModElements.ModElement {
 	public static HashMap guistate = new HashMap();
 	private static ContainerType<GuiContainerMod> containerType = null;
-	public StatGUIGui(ShamankingModElements instance) {
-		super(instance, 18);
+	public AmidamaruObtainGUIGui(ShamankingModElements instance) {
+		super(instance, 24);
 		elements.addNetworkMessage(ButtonPressedMessage.class, ButtonPressedMessage::buffer, ButtonPressedMessage::new,
 				ButtonPressedMessage::handler);
 		elements.addNetworkMessage(GUISlotChangedMessage.class, GUISlotChangedMessage::buffer, GUISlotChangedMessage::new,
@@ -47,12 +45,12 @@ public class StatGUIGui extends ShamankingModElements.ModElement {
 	private static class ContainerRegisterHandler {
 		@SubscribeEvent
 		public void registerContainer(RegistryEvent.Register<ContainerType<?>> event) {
-			event.getRegistry().register(containerType.setRegistryName("stat_gui"));
+			event.getRegistry().register(containerType.setRegistryName("amidamaru_obtain_gui"));
 		}
 	}
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
-		DeferredWorkQueue.runLater(() -> ScreenManager.registerFactory(containerType, StatGUIGuiWindow::new));
+		DeferredWorkQueue.runLater(() -> ScreenManager.registerFactory(containerType, AmidamaruObtainGUIGuiWindow::new));
 	}
 	public static class GuiContainerModFactory implements IContainerFactory {
 		public GuiContainerMod create(int id, PlayerInventory inv, PacketBuffer extraData) {
@@ -181,33 +179,8 @@ public class StatGUIGui extends ShamankingModElements.ModElement {
 			{
 				Map<String, Object> $_dependencies = new HashMap<>();
 				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				OracleBellOnKeyPressedProcedure.executeProcedure($_dependencies);
-			}
-		}
-		if (buttonID == 1) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				OpenSpiritStorageProcedure.executeProcedure($_dependencies);
-			}
-		}
-		if (buttonID == 2) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				OpenAppraisalProcedure.executeProcedure($_dependencies);
+				AmidamaruUnlockProcedure.executeProcedure($_dependencies);
 			}
 		}
 	}

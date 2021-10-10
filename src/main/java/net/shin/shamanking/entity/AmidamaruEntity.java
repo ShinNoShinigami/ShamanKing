@@ -4,7 +4,7 @@ package net.shin.shamanking.entity;
 import net.shin.shamanking.procedures.TestRightClickedOnEntityProcedure;
 import net.shin.shamanking.procedures.Spirit1FollowProcedure;
 import net.shin.shamanking.itemgroup.ShamanKingItemGroup;
-import net.shin.shamanking.entity.renderer.TestRenderer;
+import net.shin.shamanking.entity.renderer.AmidamaruRenderer;
 import net.shin.shamanking.ShamankingModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,9 +13,13 @@ import net.minecraftforge.fml.network.FMLPlayMessages;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.gen.Heightmap;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.World;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
@@ -31,6 +35,7 @@ import net.minecraft.entity.projectile.PotionEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.OwnerHurtTargetGoal;
@@ -45,6 +50,7 @@ import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.CreatureAttribute;
@@ -56,25 +62,33 @@ import java.util.HashMap;
 import com.google.common.collect.ImmutableMap;
 
 @ShamankingModElements.ModElement.Tag
-public class TestEntity extends ShamankingModElements.ModElement {
+public class AmidamaruEntity extends ShamankingModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
-			.size(0.6f, 1.8f)).build("test").setRegistryName("test");
-	public TestEntity(ShamankingModElements instance) {
-		super(instance, 7);
-		FMLJavaModLoadingContext.get().getModEventBus().register(new TestRenderer.ModelRegisterHandler());
+			.size(0.4f, 0.7f)).build("amidamaru").setRegistryName("amidamaru");
+	public AmidamaruEntity(ShamankingModElements instance) {
+		super(instance, 25);
+		FMLJavaModLoadingContext.get().getModEventBus().register(new AmidamaruRenderer.ModelRegisterHandler());
 		FMLJavaModLoadingContext.get().getModEventBus().register(new EntityAttributesRegisterHandler());
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@Override
 	public void initElements() {
 		elements.entities.add(() -> entity);
-		elements.items
-				.add(() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ShamanKingItemGroup.tab)).setRegistryName("test_spawn_egg"));
+		elements.items.add(
+				() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ShamanKingItemGroup.tab)).setRegistryName("amidamaru_spawn_egg"));
+	}
+
+	@SubscribeEvent
+	public void addFeatureToBiomes(BiomeLoadingEvent event) {
+		event.getSpawns().getSpawner(EntityClassification.MONSTER).add(new MobSpawnInfo.Spawners(entity, 1, 4, 4));
 	}
 
 	@Override
 	public void init(FMLCommonSetupEvent event) {
+		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				MonsterEntity::canMonsterSpawn);
 	}
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
@@ -97,6 +111,7 @@ public class TestEntity extends ShamankingModElements.ModElement {
 			super(type, world);
 			experienceValue = 0;
 			setNoAI(false);
+			enablePersistence();
 		}
 
 		@Override
@@ -138,6 +153,11 @@ public class TestEntity extends ShamankingModElements.ModElement {
 		@Override
 		public CreatureAttribute getCreatureAttribute() {
 			return CreatureAttribute.UNDEFINED;
+		}
+
+		@Override
+		public boolean canDespawn(double distanceToClosestPlayer) {
+			return false;
 		}
 
 		@Override
@@ -223,7 +243,6 @@ public class TestEntity extends ShamankingModElements.ModElement {
 						this.enablePersistence();
 				}
 			}
-			sourceentity.startRiding(this);
 			double x = this.getPosX();
 			double y = this.getPosY();
 			double z = this.getPosZ();
@@ -232,6 +251,10 @@ public class TestEntity extends ShamankingModElements.ModElement {
 				Map<String, Object> $_dependencies = new HashMap<>();
 				$_dependencies.put("entity", entity);
 				$_dependencies.put("sourceentity", sourceentity);
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
 				TestRightClickedOnEntityProcedure.executeProcedure($_dependencies);
 			}
 			return retval;

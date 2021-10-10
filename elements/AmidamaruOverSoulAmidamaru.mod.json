@@ -1,0 +1,65 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 225,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "text": "Stats",
+          "width": 50,
+          "height": 20,
+          "name": "Stats",
+          "x": 323,
+          "y": 20
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "OverSoul",
+          "width": 65,
+          "height": 20,
+          "name": "OverSoul",
+          "x": 323,
+          "y": 39
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "OverSoul Info",
+          "width": 95,
+          "height": 20,
+          "name": "OverSoul Info",
+          "x": 323,
+          "y": 58
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "AmidamaruImage.png",
+          "use1Xscale": false,
+          "name": "AmidamaruImage.png",
+          "x": 269,
+          "y": 28
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

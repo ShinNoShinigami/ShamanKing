@@ -1,7 +1,8 @@
 package net.shin.shamanking.procedures;
 
 import net.shin.shamanking.item.AmidamaruSpiritItem;
-import net.shin.shamanking.entity.TestEntity;
+import net.shin.shamanking.entity.AmidamaruEntity;
+import net.shin.shamanking.ShamankingModVariables;
 import net.shin.shamanking.ShamankingMod;
 
 import net.minecraft.world.server.ServerWorld;
@@ -36,7 +37,7 @@ public class AmidamaruSpiritRightClickedInAirProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		IWorld world = (IWorld) dependencies.get("world");
 		if (world instanceof ServerWorld) {
-			Entity entityToSpawn = new TestEntity.CustomEntity(TestEntity.entity, (World) world);
+			Entity entityToSpawn = new AmidamaruEntity.CustomEntity(AmidamaruEntity.entity, (World) world);
 			entityToSpawn.setLocationAndAngles((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), world.getRandom().nextFloat() * 360F, 0);
 			if (entityToSpawn instanceof MobEntity)
 				((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(entityToSpawn.getPosition()),
@@ -44,7 +45,7 @@ public class AmidamaruSpiritRightClickedInAirProcedure {
 			world.addEntity(entityToSpawn);
 		}
 		if ((((Entity) world
-				.getEntitiesWithinAABB(TestEntity.CustomEntity.class,
+				.getEntitiesWithinAABB(AmidamaruEntity.CustomEntity.class,
 						new AxisAlignedBB((entity.getPosX()) - (1 / 2d), (entity.getPosY()) - (1 / 2d), (entity.getPosZ()) - (1 / 2d),
 								(entity.getPosX()) + (1 / 2d), (entity.getPosY()) + (1 / 2d), (entity.getPosZ()) + (1 / 2d)),
 						null)
@@ -55,7 +56,7 @@ public class AmidamaruSpiritRightClickedInAirProcedure {
 				}.compareDistOf((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()))).findFirst().orElse(null)) instanceof TameableEntity)
 				&& (entity instanceof PlayerEntity)) {
 			((TameableEntity) ((Entity) world
-					.getEntitiesWithinAABB(TestEntity.CustomEntity.class,
+					.getEntitiesWithinAABB(AmidamaruEntity.CustomEntity.class,
 							new AxisAlignedBB((entity.getPosX()) - (1 / 2d), (entity.getPosY()) - (1 / 2d), (entity.getPosZ()) - (1 / 2d),
 									(entity.getPosX()) + (1 / 2d), (entity.getPosY()) + (1 / 2d), (entity.getPosZ()) + (1 / 2d)),
 							null)
@@ -65,7 +66,7 @@ public class AmidamaruSpiritRightClickedInAirProcedure {
 						}
 					}.compareDistOf((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()))).findFirst().orElse(null))).setTamed(true);
 			((TameableEntity) ((Entity) world
-					.getEntitiesWithinAABB(TestEntity.CustomEntity.class,
+					.getEntitiesWithinAABB(AmidamaruEntity.CustomEntity.class,
 							new AxisAlignedBB((entity.getPosX()) - (1 / 2d), (entity.getPosY()) - (1 / 2d), (entity.getPosZ()) - (1 / 2d),
 									(entity.getPosX()) + (1 / 2d), (entity.getPosY()) + (1 / 2d), (entity.getPosZ()) + (1 / 2d)),
 							null)
@@ -75,6 +76,13 @@ public class AmidamaruSpiritRightClickedInAirProcedure {
 						}
 					}.compareDistOf((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()))).findFirst().orElse(null)))
 							.setTamedBy((PlayerEntity) entity);
+		}
+		{
+			boolean _setval = (boolean) (true);
+			entity.getCapability(ShamankingModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.AmidamaruUnlock = _setval;
+				capability.syncPlayerVariables(entity);
+			});
 		}
 		if (entity instanceof PlayerEntity) {
 			ItemStack _stktoremove = new ItemStack(AmidamaruSpiritItem.block);

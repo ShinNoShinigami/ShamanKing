@@ -1,14 +1,20 @@
 
 package net.shin.shamanking.gui;
 
+import net.shin.shamanking.procedures.GUIButtonDisplayProcedure;
+import net.shin.shamanking.ShamankingModVariables;
+import net.shin.shamanking.ShamankingMod;
+
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
@@ -16,6 +22,8 @@ import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
+
+import com.google.common.collect.ImmutableMap;
 
 @OnlyIn(Dist.CLIENT)
 public class StatGUIGuiWindow extends ContainerScreen<StatGUIGui.GuiContainerMod> {
@@ -30,7 +38,7 @@ public class StatGUIGuiWindow extends ContainerScreen<StatGUIGui.GuiContainerMod
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.xSize = 225;
+		this.xSize = 250;
 		this.ySize = 200;
 	}
 	private static final ResourceLocation texture = new ResourceLocation("shamanking:textures/stat_gui.png");
@@ -50,8 +58,6 @@ public class StatGUIGuiWindow extends ContainerScreen<StatGUIGui.GuiContainerMod
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
-		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("shamanking:textures/playeroutline.png"));
-		this.blit(ms, this.guiLeft + 67, this.guiTop + 49, 0, 0, 100, 100, 100, 100);
 		RenderSystem.disableBlend();
 	}
 
@@ -71,6 +77,15 @@ public class StatGUIGuiWindow extends ContainerScreen<StatGUIGui.GuiContainerMod
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
+		this.font.drawString(ms, "" + (int) ((entity.getCapability(ShamankingModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new ShamankingModVariables.PlayerVariables())).furyokumax) + "", 132, 140, -12829636);
+		this.font.drawString(ms, "" + (int) ((entity.getCapability(ShamankingModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new ShamankingModVariables.PlayerVariables())).furyoku) + "", 132, 125, -12829636);
+		this.font.drawString(ms, "Furyoku:", 7, 125, -12829636);
+		this.font.drawString(ms, "Max Furyoku", 7, 140, -12829636);
+		this.font.drawString(ms, "Strength", 7, 155, -12829636);
+		this.font.drawString(ms, "Agility", 7, 170, -12829636);
+		this.font.drawString(ms, "Durability", 7, 185, -12829636);
 	}
 
 	@Override
@@ -83,5 +98,41 @@ public class StatGUIGuiWindow extends ContainerScreen<StatGUIGui.GuiContainerMod
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
+		this.addButton(new Button(this.guiLeft + 246, this.guiTop + 0, 50, 20, new StringTextComponent("Stats"), e -> {
+			if (GUIButtonDisplayProcedure.executeProcedure(ImmutableMap.of("entity", entity))) {
+				ShamankingMod.PACKET_HANDLER.sendToServer(new StatGUIGui.ButtonPressedMessage(0, x, y, z));
+				StatGUIGui.handleButtonAction(entity, 0, x, y, z);
+			}
+		}) {
+			@Override
+			public void render(MatrixStack ms, int gx, int gy, float ticks) {
+				if (GUIButtonDisplayProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+					super.render(ms, gx, gy, ticks);
+			}
+		});
+		this.addButton(new Button(this.guiLeft + 246, this.guiTop + 19, 60, 20, new StringTextComponent("Spirits"), e -> {
+			if (GUIButtonDisplayProcedure.executeProcedure(ImmutableMap.of("entity", entity))) {
+				ShamankingMod.PACKET_HANDLER.sendToServer(new StatGUIGui.ButtonPressedMessage(1, x, y, z));
+				StatGUIGui.handleButtonAction(entity, 1, x, y, z);
+			}
+		}) {
+			@Override
+			public void render(MatrixStack ms, int gx, int gy, float ticks) {
+				if (GUIButtonDisplayProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+					super.render(ms, gx, gy, ticks);
+			}
+		});
+		this.addButton(new Button(this.guiLeft + 246, this.guiTop + 38, 70, 20, new StringTextComponent("Appraisal"), e -> {
+			if (GUIButtonDisplayProcedure.executeProcedure(ImmutableMap.of("entity", entity))) {
+				ShamankingMod.PACKET_HANDLER.sendToServer(new StatGUIGui.ButtonPressedMessage(2, x, y, z));
+				StatGUIGui.handleButtonAction(entity, 2, x, y, z);
+			}
+		}) {
+			@Override
+			public void render(MatrixStack ms, int gx, int gy, float ticks) {
+				if (GUIButtonDisplayProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+					super.render(ms, gx, gy, ticks);
+			}
+		});
 	}
 }

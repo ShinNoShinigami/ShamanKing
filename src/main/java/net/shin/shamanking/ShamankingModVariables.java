@@ -74,6 +74,8 @@ public class ShamankingModVariables {
 			nbt.putString("SpiritInfused", instance.SpiritInfused);
 			nbt.putDouble("furyokumax", instance.furyokumax);
 			nbt.putBoolean("OracleBellEquipped", instance.OracleBellEquipped);
+			nbt.putBoolean("AmidamaruUnlock", instance.AmidamaruUnlock);
+			nbt.putDouble("SpiritsEquipped", instance.SpiritsEquipped);
 			return nbt;
 		}
 
@@ -87,6 +89,8 @@ public class ShamankingModVariables {
 			instance.SpiritInfused = nbt.getString("SpiritInfused");
 			instance.furyokumax = nbt.getDouble("furyokumax");
 			instance.OracleBellEquipped = nbt.getBoolean("OracleBellEquipped");
+			instance.AmidamaruUnlock = nbt.getBoolean("AmidamaruUnlock");
+			instance.SpiritsEquipped = nbt.getDouble("SpiritsEquipped");
 		}
 	}
 
@@ -97,7 +101,9 @@ public class ShamankingModVariables {
 		public boolean AmidamaruInUse = false;
 		public String SpiritInfused = "\"\"";
 		public double furyokumax = 500.0;
-		public boolean OracleBellEquipped = false;
+		public boolean OracleBellEquipped = true;
+		public boolean AmidamaruUnlock = true;
+		public double SpiritsEquipped = 0;
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
 				ShamankingMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) entity),
@@ -137,6 +143,8 @@ public class ShamankingModVariables {
 		clone.SpiritInfused = original.SpiritInfused;
 		clone.furyokumax = original.furyokumax;
 		clone.OracleBellEquipped = original.OracleBellEquipped;
+		clone.AmidamaruUnlock = original.AmidamaruUnlock;
+		clone.SpiritsEquipped = original.SpiritsEquipped;
 		if (!event.isWasDeath()) {
 		}
 	}
@@ -168,6 +176,8 @@ public class ShamankingModVariables {
 					variables.SpiritInfused = message.data.SpiritInfused;
 					variables.furyokumax = message.data.furyokumax;
 					variables.OracleBellEquipped = message.data.OracleBellEquipped;
+					variables.AmidamaruUnlock = message.data.AmidamaruUnlock;
+					variables.SpiritsEquipped = message.data.SpiritsEquipped;
 				}
 			});
 			context.setPacketHandled(true);

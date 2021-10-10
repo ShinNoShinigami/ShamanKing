@@ -8,16 +8,8 @@
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "amidamaru_spirit"
-    },
-    {
-      "name": "Test",
-      "type": "livingentity",
-      "sortid": 7,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "test"
+      "registry_name": "amidamaru_spirit",
+      "path": "~/Items"
     },
     {
       "name": "Spirit1Follow",
@@ -61,7 +53,8 @@
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "recall_spirit_1"
+      "registry_name": "recall_spirit_1",
+      "path": "~/Keybinds"
     },
     {
       "name": "TestRightClickedOnEntity",
@@ -80,6 +73,22 @@
           {
             "name": "sourceentity",
             "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -129,7 +138,8 @@
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "spirit_infusion"
+      "registry_name": "spirit_infusion",
+      "path": "~/Keybinds"
     },
     {
       "name": "OnWorldTickUpdate",
@@ -175,22 +185,275 @@
       }
     },
     {
-      "name": "FuryokuDisplay",
-      "type": "overlay",
-      "sortid": 17,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "furyoku_display"
-    },
-    {
       "name": "StatGUI",
       "type": "gui",
       "sortid": 18,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "stat_gui"
+      "registry_name": "stat_gui",
+      "path": "~/GUI"
+    },
+    {
+      "name": "OracleBellOnKeyPressed",
+      "type": "procedure",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "oracle_bell_on_key_pressed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OracleBell",
+      "type": "keybind",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "oracle_bell",
+      "path": "~/Keybinds"
+    },
+    {
+      "name": "SpiritStorage",
+      "type": "gui",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "spirit_storage",
+      "path": "~/GUI"
+    },
+    {
+      "name": "AmidamaruUnlock",
+      "type": "procedure",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "amidamaru_unlock",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OpenSpiritStorage",
+      "type": "procedure",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "open_spirit_storage",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AmidamaruObtainGUI",
+      "type": "gui",
+      "sortid": 24,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "amidamaru_obtain_gui",
+      "path": "~/GUI"
+    },
+    {
+      "name": "Amidamaru",
+      "type": "livingentity",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "amidamaru",
+      "path": "~/Mobs"
+    },
+    {
+      "name": "SpiritAppraisal",
+      "type": "gui",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "spirit_appraisal",
+      "path": "~/GUI"
+    },
+    {
+      "name": "OpenAppraisal",
+      "type": "procedure",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "open_appraisal",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AmidamaruBase",
+      "type": "gui",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "amidamaru_base",
+      "path": "~/GUI"
+    },
+    {
+      "name": "AmidamaruOverSoulSelect",
+      "type": "gui",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "amidamaru_over_soul_select",
+      "path": "~/GUI"
+    },
+    {
+      "name": "AmidamaruOverSoulAmidamaru",
+      "type": "gui",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "amidamaru_over_soul_amidamaru",
+      "path": "~/GUI"
+    },
+    {
+      "name": "Appraisal",
+      "type": "procedure",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "appraisal",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Oracle",
+      "type": "item",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "oracle",
+      "path": "~/Items"
+    },
+    {
+      "name": "GUIButtonDisplay",
+      "type": "procedure",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "gui_button_display",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -234,23 +497,54 @@
       "name": "OracleBellEquipped",
       "type": "logic",
       "scope": "player_persistent",
-      "value": "false"
+      "value": "true"
+    },
+    {
+      "name": "AmidamaruUnlock",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "true"
+    },
+    {
+      "name": "SpiritsEquipped",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
     }
   ],
   "sound_elements": [],
   "language_map": {
     "en_us": {
       "item.shamanking.amidamaru_spirit": "Amidamaru Spirit",
+      "entity.shamanking.amidamaru": "Amidamaru",
+      "key.shamanking.oracle_bell": "Oracle Bell",
       "key.shamanking.recall_spirit_1": "Recall Spirit",
+      "item.shamanking.oracle": "Oracle Bell",
       "key.shamanking.spirit_infusion": "Hy?i-Gattai",
-      "entity.shamanking.test": "Amidamaru",
-      "item.shamanking.test_spawn_egg": "Amidamaru Spawn Egg",
+      "item.shamanking.amidamaru_spawn_egg": "Amidamaru Spawn Egg",
       "itemGroup.tabshaman_king": "Shaman King"
     }
   },
   "foldersRoot": {
     "name": "~",
-    "children": []
+    "children": [
+      {
+        "name": "Keybinds",
+        "children": []
+      },
+      {
+        "name": "GUI",
+        "children": []
+      },
+      {
+        "name": "Items",
+        "children": []
+      },
+      {
+        "name": "Mobs",
+        "children": []
+      }
+    ]
   },
   "workspaceSettings": {
     "modid": "shamanking",

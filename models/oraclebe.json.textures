@@ -2,7 +2,7 @@
   "mappings": {
     "default": {
       "map": {
-        "m_0": "texture"
+        "0": "oracle"
       },
       "name": "default"
     }

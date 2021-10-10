@@ -1,0 +1,12 @@
+{
+  "_fv": 24,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "Z",
+    "keyBindingName": "Oracle Bell",
+    "keyBindingCategoryKey": "shamanking",
+    "onKeyPressed": {
+      "name": "OracleBellOnKeyPressed"
+    }
+  }
+}

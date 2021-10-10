@@ -1,8 +1,10 @@
 {
   "item.shamanking.amidamaru_spirit": "Amidamaru Spirit",
+  "entity.shamanking.amidamaru": "Amidamaru",
+  "key.shamanking.oracle_bell": "Oracle Bell",
   "key.shamanking.recall_spirit_1": "Recall Spirit",
+  "item.shamanking.oracle": "Oracle Bell",
   "key.shamanking.spirit_infusion": "Hy?i-Gattai",
-  "entity.shamanking.test": "Amidamaru",
-  "item.shamanking.test_spawn_egg": "Amidamaru Spawn Egg",
+  "item.shamanking.amidamaru_spawn_egg": "Amidamaru Spawn Egg",
   "itemGroup.tabshaman_king": "Shaman King"
 }

@@ -1,6 +1,6 @@
 package net.shin.shamanking.entity.renderer;
 
-import net.shin.shamanking.entity.TestEntity;
+import net.shin.shamanking.entity.AmidamaruEntity;
 
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -19,13 +19,13 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 @OnlyIn(Dist.CLIENT)
-public class TestRenderer {
+public class AmidamaruRenderer {
 	public static class ModelRegisterHandler {
 		@SubscribeEvent
 		@OnlyIn(Dist.CLIENT)
 		public void registerModels(ModelRegistryEvent event) {
-			RenderingRegistry.registerEntityRenderingHandler(TestEntity.entity, renderManager -> {
-				return new MobRenderer(renderManager, new Modelcustom_model(), 0.5f) {
+			RenderingRegistry.registerEntityRenderingHandler(AmidamaruEntity.entity, renderManager -> {
+				return new MobRenderer(renderManager, new Amidamaru(), 0.5f) {
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("shamanking:textures/amidamaruhuman.png");
@@ -38,7 +38,7 @@ public class TestRenderer {
 	// Made with Blockbench 3.9.3
 	// Exported for Minecraft version 1.15 - 1.16 with MCP mappings
 	// Paste this class into your mod and generate all required imports
-	public static class Modelcustom_model extends EntityModel<Entity> {
+	public static class Amidamaru extends EntityModel<Entity> {
 		private final ModelRenderer bone;
 		private final ModelRenderer LeftLeg;
 		private final ModelRenderer RightLeg;
@@ -67,7 +67,7 @@ public class TestRenderer {
 		private final ModelRenderer bone5;
 		private final ModelRenderer cube_r15;
 		private final ModelRenderer cube_r16;
-		public Modelcustom_model() {
+		public Amidamaru() {
 			textureWidth = 128;
 			textureHeight = 128;
 			bone = new ModelRenderer(this);
@@ -245,8 +245,10 @@ public class TestRenderer {
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
 			this.RightArm.rotateAngleY = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
-			this.LeftLeg.rotateAngleZ = MathHelper.cos(f * 0.6662F) * f1;
-			this.RightLeg.rotateAngleZ = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
+			this.LeftLeg.rotateAngleY = MathHelper.cos(f * 1.0F) * -1.0F * f1;
+			this.Head.rotateAngleY = f3 / (180F / (float) Math.PI);
+			this.Head.rotateAngleX = f4 / (180F / (float) Math.PI);
+			this.RightLeg.rotateAngleY = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 			this.LeftArm.rotateAngleY = MathHelper.cos(f * 0.6662F) * f1;
 		}
 	}
